@@ -1,0 +1,90 @@
+MongoDB nema tabele i relaciono povezivanje tako da cemo u te svrhe 
+napraviti dijagram koji opisuje bazu podataka kroz modele koji sadrzavaju sljedeca polja:
+
+Registrovani korisnik(Majstor):
+- korisnicko ime/email adresa,
+- ime
+- prezime
+- o sebi(potrebno je radi laznih profila)
+- kontakt telefon
+- password
+- email/korisnicko ime (neizmjenjiv),
+- korisnicku šifru (neizmjenjiva),
+- korisnicki opisni tekst (izmjenjiv),
+- vrsta zanata(izmjenjiv),
+- materijali od posebnog interesa(izmjenjiv),
+- radna iskustva u kompanijama(izmjenjiv),
+- slika(izmjenjiva)
+- opcija: primanje news feed-a za svaku promo akciju
+- opcija: primanje e-mail odgovora za svaki zahtjev 
+- datum i vrijeme posljednje prijave
+- bodovi za kupovinu
+- banovan/aktivan
+
+Registrovani korisnik(admin):
+- username/email
+- Ime i prezime (zajedno)
+- password
+
+Registrovani korisnik(superadmin):
+- username
+- password
+
+Pitanja:
+- id
+- tekst
+- datum i vrijeme
+- id korisnika(koji salje pitanje)
+
+Odgovori(pitanja):
+- id
+- povezan na pitanje: id pitanja
+- tekst
+- datum i vrijeme
+- redni broj odgovora
+
+Zahtjevi:
+- id
+- lista artikala: idListe
+- datum i vrijeme
+- id korisnika(koji salje zahtjev)
+
+Liste Zahtjevi-Artikli(Povezujuca tabela):
+- id
+- idListe
+- id Artikla
+
+Odgovori(zahtjevi):
+- id
+- povezan na zahtjev: id zahtjeva
+- tekst
+- datum i vrijeme
+- redni broj odgovora
+
+Proizvodi:
+- id
+- naziv
+- kolicina
+- dimenzije
+- sifra artikla
+- boja
+- opis artikla(za sta se najcesce koristi i sl.)
+- slika naslovna(300x300)
+- tip artikla: TIP
+- aktivan?
+
+Tipovi artikla:
+- id
+- naziv
+
+Akcije:
+- id
+- slika
+- naslov
+- opis
+- od datuma
+- do datuma
+- poslati news feed
+- postaviti na naslovnu stranicu
+
+
