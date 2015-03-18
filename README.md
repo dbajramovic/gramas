@@ -2,8 +2,11 @@ Zahtjevi i specifikacija aplikacije po modulima
 
 1. Sistemski modul
 Vrste korisnika u sistemu su: a. Neregistrovani b. Registrovani
-Privilegije registriranih korisnika u sistemu su: a. Standardni korisnik(Majstori) b. Administrator(Prodavaci) c.SuperAdmin(postavljanje admina)
-(Napomena: Baza podataka dolazi sa ubacenim osnovnim admin podacima,tako da je login moguc odmah. SuperAdmin ce registrovati inace admine)
+Privilegije registriranih korisnika u sistemu su: 
+	a. Standardni korisnik(Majstori) 
+	b. Administrator(Prodavaci) 
+	c.SuperAdmin(postavljanje admina)
+(Napomena: Baza podataka dolazi sa ubacenim osnovnim admin podacima,tako da je login moguc odmah. SuperAdmin ce registrovati inace admine po potrebi.)
 
 2. Registracija
 Posjetioc stranice(neregistrovani korisnik) može se registrovati ili prijaviti se na sistem.
