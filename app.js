@@ -4,12 +4,25 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
-var routes = require('./routes/index');
+//routes
+var admins = require('./routes/admins');
+var articles = require('./routes/articles');
+var articleTypes = require('./routes/articleTypes');
+var artisans = require('./routes/artisans');
+var discounts = require('./routes/discounts');
+var questionResponses  =require('./routes/questionResponses');
+var questions  =require('./routes/questions');
+var requestOfArticle = require('./routes/requestOfArticle');
+var requestResponses = require('./routes/requestResponses');
+var requests = require('./routes/requests');
+var superadmin = require('./routes/superadmin');
 var users = require('./routes/users');
+var routes = require('./routes/index');
 
 var app = express();
-
+mongoose.connect('mongodb://localhost/gramas');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -23,8 +36,20 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+//routes
+app.use('/admins',admins);
+app.use('/articles', articles);
+app.use('/articleTypes', articleTypes);
+app.use('/artisans', artisans);
+app.use('/discounts', discounts);
+app.use('/questionResponses', questionResponses);
+app.use('/questions', questions);
+app.use('/requestOfArticle', requestOfArticle);
+app.use('/requestResponses', requestResponses);
+app.use('/requests', requests);
+app.use('/superadmin',superadmin);
 app.use('/users', users);
+app.use('/', routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

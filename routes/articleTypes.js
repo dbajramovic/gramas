@@ -1,15 +1,15 @@
 var express = require('express');
 var router = express.Router();
-var User = require('../dbmodels/user').User;
-/* GET users listing. */
+var ArticleTypes = require('../dbmodels/articleType').ArticleType;
+
+/* GET home page. */
 router.get('/', function(req, res, next) {
-    User.find({}, function(err, docs) {
+    ArticleTypes.find({}, function(err, docs) {
         if (!err) {
-            res.json(200, {Users: docs});
+            res.json(200, {ArticleTypes: docs});
         } else {
             res.json(500, {message: err});
         }
     });
 });
-
 module.exports = router;

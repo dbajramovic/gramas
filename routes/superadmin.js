@@ -1,15 +1,14 @@
 var express = require('express');
 var router = express.Router();
-var User = require('../dbmodels/user').User;
-/* GET users listing. */
+var Superadmin = require('../dbmodels/superadmin').Superadmin;
+/* GET home page. */
 router.get('/', function(req, res, next) {
-    User.find({}, function(err, docs) {
+    Superadmin.find({}, function(err, docs) {
         if (!err) {
-            res.json(200, {Users: docs});
+            res.json(200, {Superadmin: docs});
         } else {
             res.json(500, {message: err});
         }
     });
-});
-
+    });
 module.exports = router;
