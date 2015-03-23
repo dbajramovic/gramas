@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
     , Schema = mongoose.Schema;
 
-var questionResponseSchema = new Schema({
+var questionResponseSchema = new mongoose.Schema({
 
     Question:[
         {type: Schema.Types.ObjectId, ref: 'question'}

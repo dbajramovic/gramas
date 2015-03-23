@@ -1,14 +1,14 @@
 var express = require('express');
 var router = express.Router();
-var Discount = require('../dbmodels/discount').Discount;
+var discount = require('../dbmodels/discount').Discount;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    Discount.find({}, function(err, docs) {
+    discount.find({}, function(err, docs) {
         if (!err) {
-            res.json(200, {Discounts: docs});
+            res.status(200).json({Discounts: docs});
         } else {
-            res.json(500, {message: err});
+            res.status(500).json({message: err});
         }
     });
 });

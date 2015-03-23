@@ -1,14 +1,14 @@
 var express = require('express');
 var router = express.Router();
-var Questions = require('../dbmodels/question').Question;
+var questions = require('../dbmodels/question').Question;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    Questions.find({}, function(err, docs) {
+    questions.find({}, function(err, docs) {
         if (!err) {
-            res.json(200, {Questions: docs});
+            res.status(200).json({Question: docs});
         } else {
-            res.json(500, {message: err});
+            res.status(500).json({message: err});
         }
     });
 });

@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
     , Schema = mongoose.Schema;
 
-var discountSchema = new Schema({
+var discountSchema = new mongoose.Schema({
     Picture : {type: String, required:true}
     , Title : {type: String, required:true }
     , Description : {type: String, required:true}

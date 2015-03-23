@@ -6,9 +6,9 @@ var article = require('../dbmodels/article').Article;
 router.get('/', function(req, res, next) {
     article.find({}, function(err, docs) {
         if (!err) {
-            res.json(200, {Articles: docs});
+            res.status(200).json({Articles: docs});
         } else {
-            res.json(500, {message: err});
+            res.status(500).json({message: err});
         }
     });
 });

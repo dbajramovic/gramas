@@ -1,13 +1,13 @@
 var express = require('express');
 var router = express.Router();
-var Superadmin = require('../dbmodels/superadmin').Superadmin;
+var superadmin = require('../dbmodels/superadmin').Superadmin;
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    Superadmin.find({}, function(err, docs) {
+    superadmin.find({}, function(err, docs) {
         if (!err) {
-            res.json(200, {Superadmin: docs});
+            res.status(200).json({Superadmin: docs});
         } else {
-            res.json(500, {message: err});
+            res.status(500).json({message: err});
         }
     });
     });

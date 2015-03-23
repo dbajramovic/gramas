@@ -1,14 +1,14 @@
 var express = require('express');
 var router = express.Router();
-var Artisan = require('../dbmodels/artisan').Artisan;
+var artisan = require('../dbmodels/artisan').Artisan;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    Artisan.find({}, function(err, docs) {
+    artisan.find({}, function(err, docs) {
         if (!err) {
-            res.json(200, {Artisans: docs});
+            res.status(200).json({Artisans: docs});
         } else {
-            res.json(500, {message: err});
+            res.status(500).json({message: err});
         }
     });
 });

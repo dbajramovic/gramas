@@ -3,14 +3,14 @@
  */
 var express = require('express');
 var router = express.Router();
-var Admin = require('../dbmodels/admin').Admin;
+var admin = require('../dbmodels/admin').Admin;
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    Admin.find({}, function(err, docs) {
+    admin.find({}, function(err, docs) {
         if (!err) {
-            res.json(200, {Admins: docs});
+            res.status(200).json({Admins: docs});
         } else {
-            res.json(500, {message: err});
+            res.status(500).json({message: err});
         }
     });
 });

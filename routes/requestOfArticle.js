@@ -6,9 +6,9 @@ var requestOfArticles = require('../dbmodels/requestOfArticle').RequestOfArticle
 router.get('/', function(req, res, next) {
     requestOfArticles.find({}, function(err, docs) {
         if (!err) {
-            res.json(200, {RequestOfArticles: docs});
+            res.status(200).json({RequestOfArticles: docs});
         } else {
-            res.json(500, {message: err});
+            res.status(500).json({message: err});
         }
     });
 });
