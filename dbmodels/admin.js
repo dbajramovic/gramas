@@ -3,7 +3,8 @@ var mongoose = require('mongoose')
 
 var adminSchema = new mongoose.Schema({
     //needs foreign key on user - will also be primary key
-    User:[
+    //User:[
+    _id:[
         {type: Schema.Types.ObjectId, ref: 'User'}
     ]
 });

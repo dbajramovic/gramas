@@ -3,8 +3,8 @@ var mongoose = require('mongoose')
 
 var requestResponseSchema = new mongoose.Schema({
 
-    Response:[
-        {type: Schema.Types.ObjectId, ref: 'response'}
+    Request:[
+        {type: Schema.Types.ObjectId, ref: 'request'}
     ]
     , Text : {type: String, required:true}
     , DateTime : { type: String, required: true }

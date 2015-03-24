@@ -2,8 +2,10 @@ var mongoose = require('mongoose')
     , Schema = mongoose.Schema;
 
 var artisanSchema = new mongoose.Schema({
-
-    Name : {type: String, required : true}
+    _id : [
+        {type: Schema.Types.ObjectId, ref: 'User'}
+    ]
+    , Name : {type: String, required : true}
     , Surname : {type: String, required : true}
     , Description : {type: String, required : true} //anti bot, is required
     , Telephone : {type: Number, required : true}
