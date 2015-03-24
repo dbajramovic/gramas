@@ -12,4 +12,39 @@ router.get('/', function(req, res, next) {
     });
 });
 
+/* GET user by id. */
+router.get('/:_id', function(req, res, next) {
+    user.findById(req.params._id, function(err, docs) {
+        if (!err) {
+            res.status(200).json({Users: docs});
+        } else {
+            res.status(500).json({message: err});
+        }
+    });
+});
+
+/* POST /users */
+router.post('/', function(req, res, next) {
+    User.create(req.body, function (err, post) {
+        if (err) return next(err);
+        res.json(post);
+    });
+});
+
+/* PUT /users/:id */
+router.put('/:id', function(req, res, next) {
+    User.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
+        if (err) return next(err);
+        res.json(post);
+    });
+});
+
+/* DELETE /users/:id */
+router.delete('/:id', function(req, res, next) {
+    User.findByIdAndRemove(req.params.id, req.body, function (err, post) {e
+        if (err) return next(err);
+        res.json(post);
+    });
+});
+
 module.exports = router;
