@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 
 /* GET user by id. */
 router.get('/:id', function(req, res, next) {
-    User.findById(req.params.id, function(err, docs) {
+    user.findById(req.params.id, function(err, docs) {
         if (!err) {
             res.status(200).json({Users: docs});
         } else {
@@ -25,7 +25,7 @@ router.get('/:id', function(req, res, next) {
 
 /* POST /users */
 router.post('/', function(req, res, next) {
-    User.create(req.body, function (err, post) {
+    user.create(req.body, function (err, post) {
         if (err) return next(err);
         res.json(post);
     });
@@ -33,7 +33,7 @@ router.post('/', function(req, res, next) {
 
 /* PUT /users/:id */
 router.put('/:id', function(req, res, next) {
-    User.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
+    user.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
         if (err) return next(err);
         res.json(post);
     });
