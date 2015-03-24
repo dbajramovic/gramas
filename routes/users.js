@@ -13,8 +13,8 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET user by id. */
-router.get('/:_id', function(req, res, next) {
-    user.findById(req.params._id, function(err, docs) {
+router.get('/:id', function(req, res, next) {
+    user.findById(req.params.id, function(err, docs) {
         if (!err) {
             res.status(200).json({Users: docs});
         } else {
