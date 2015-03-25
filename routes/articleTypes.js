@@ -2,11 +2,11 @@ var express = require('express');
 var router = express.Router();
 var articleTypes = require('../dbmodels/articleType').ArticleType;
 
-/* GET articleTypes. */
+/* GET all articleTypes. */
 router.get('/', function(req, res, next) {
     articleTypes.find({}, function(err, docs) {
         if (!err) {
-            res.status(200).json({ArticleTypes: docs});
+            res.status(200).json({articleTypes: docs});
         } else {
             res.status(500).json({message: err});
         }
@@ -17,34 +17,49 @@ router.get('/', function(req, res, next) {
 router.get('/:id', function(req, res, next) {
     articleTypes.findById(req.params.id, function(err, docs) {
         if (!err) {
-            res.status(200).json({questions: docs});
+            res.status(200).json({articleType: docs});
         } else {
             res.status(500).json({message: err});
         }
     });
 });
 
-/* POST /articleTypes */
-router.post('/', function(req, res, next) {
+/* PUT /articleTypes */
+router.put('/', function(req, res, next) {
     articleTypes.create(req.body, function (err, post) {
-        if (err) return next(err);
-        res.json(post);
+        //if (err) return next(err);
+        //res.json(post);
+        if (!err) {
+            res.status(200).json();
+        } else {
+            res.status(500).json({message: err});
+        }
     });
 });
 
-/* PUT /articleTypes/:id */
-router.put('/:id', function(req, res, next) {
+/* POST /articleTypes/:id */
+router.post('/:id', function(req, res, next) {
     articleTypes.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
-        if (err) return next(err);
-        res.json(post);
+        //if (err) return next(err);
+        //res.json(post);
+        if (!err) {
+            res.status(200).json();
+        } else {
+            res.status(500).json({message: err});
+        }
     });
 });
 
 /* DELETE /articleTypes/:id */
 router.delete('/:id', function(req, res, next) {
     articleTypes.findByIdAndRemove(req.params.id, req.body, function (err, post) {
-        if (err) return next(err);
-        res.json(post);
+        //if (err) return next(err);
+        //res.json(post);
+        if (!err) {
+            res.status(200).json();
+        } else {
+            res.status(500).json({message: err});
+        }
     });
 });
 
