@@ -7,7 +7,7 @@ var questionSchema = new mongoose.Schema({
     ]
     , Text : {type: String, required:true}
     , DateTime : { type: String, required: true }
-});
+},{versionKey : false});
 
 var question = mongoose.model('Question', questionSchema);
 

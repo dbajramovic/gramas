@@ -9,7 +9,7 @@ var requestOfArticleSchema = new mongoose.Schema({
     , Article:[
         {type: Schema.Types.ObjectId, ref: 'article'}
     ]
-});
+},{versionKey : false});
 
 var requestOfArticle = mongoose.model('RequestOfArticle', requestOfArticleSchema);
 

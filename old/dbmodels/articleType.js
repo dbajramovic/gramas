@@ -3,7 +3,7 @@ var mongoose = require('mongoose')
 
 var articleTypeSchema = new mongoose.Schema({
     Type : {type: String, required:true, unique:true}
-});
+},{versionKey : false});
 
 var articleType = mongoose.model('ArticleType', articleTypeSchema);
 

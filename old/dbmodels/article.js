@@ -14,7 +14,7 @@ var ArticleSchema = new mongoose.Schema({
     , Description : {type: String, required:false}
     , Picture : {type: String, required:false}
     , Active : {type: Boolean, required: true}
-});
+},{versionKey : false});
 
 var article = mongoose.model('Article', ArticleSchema);
 

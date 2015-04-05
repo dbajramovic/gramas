@@ -7,7 +7,7 @@ var adminSchema = new mongoose.Schema({
     _id:[
         {type: Schema.Types.ObjectId, ref: 'User'}
     ]
-});
+},{versionKey : false});
 
 var admin = mongoose.model('Admin', adminSchema);
 

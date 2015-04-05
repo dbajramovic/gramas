@@ -9,7 +9,7 @@ var requestResponseSchema = new mongoose.Schema({
     , Text : {type: String, required:true}
     , DateTime : { type: String, required: true }
     , ResponseIncrement : { type: Number, required: true }
-});
+},{versionKey : false});
 
 var requestResponse = mongoose.model('RequestResponse', requestResponseSchema);
 

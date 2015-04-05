@@ -9,7 +9,7 @@ var discountSchema = new mongoose.Schema({
     , ToDate : { type: String, required: true }
     , SendFeed : {type: Boolean, required:true}
     , SetOnTitlePage : {type: Boolean, required:true} //set this discount on the title page
-});
+},{versionKey : false});
 
 var discount = mongoose.model('Discount', discountSchema);
 

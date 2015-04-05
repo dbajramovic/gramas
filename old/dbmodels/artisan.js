@@ -18,7 +18,7 @@ var artisanSchema = new mongoose.Schema({
     , DateOfLastLogin : {type: String, required: false}
     , BuyingPoints : {type: Number, required : true, defaultValue: 0}
     , Banned : {type: Boolean, required: true, defaultValue: false}
-});
+},{versionKey : false});
 
 var artisan = mongoose.model('Artisan', artisanSchema);
 

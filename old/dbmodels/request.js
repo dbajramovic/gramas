@@ -6,7 +6,7 @@ var requestSchema = new mongoose.Schema({
         {type: Schema.Types.ObjectId, ref: 'user'}
     ]
     , DateTime : { type: String, required: true }
-});
+},{versionKey : false});
 
 var request = mongoose.model('Request', requestSchema);
 

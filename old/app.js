@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var jwt = require('jsonwebtoken');
+var mailer = require('nodemailer');
 
 //routes
 var admins = require('./routes/admins');
@@ -20,8 +22,10 @@ var requests = require('./routes/requests');
 var superadmin = require('./routes/superadmin');
 var users = require('./routes/users');
 var routes = require('./routes/index');
+var register = require('./routes/register');
 
 var app = express();
+
 mongoose.connect('mongodb://localhost/gramas');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,6 +41,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //routes
+app.use('/register',register);
 app.use('/admins',admins);
 app.use('/articles', articles);
 app.use('/articleTypes', articleTypes);
